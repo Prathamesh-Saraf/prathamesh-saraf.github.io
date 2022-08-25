@@ -85,7 +85,7 @@
                                 <li>
                                   <a href="research.html">
                                     <i class="fa fa-edit"></i>
-                                    <div class="text">Research</div>
+                                    <div class="text">Work</div>
                                   </a>
                                 </li> 
                                 
@@ -243,29 +243,20 @@
                                                     </div>
                                                     <div class="col-sm-8 col-md-9" style="margin-top: -10px; margin-left: -50px;">
                                                         <div class="meta">
-                                                            <h3>Improving Perception via Sensor Placement: Designing Multi-LiDAR Systems for Autonomous Vehicles</h3>                                                           </h3>
-                                                            <p>Sharad Chitlangia, <strong style="font-weight: 600;">Akhil Agnihotri</strong>, Zuxin Liu, Ding Zhao.</p><p>
-                                                                CVPR 2021, Autonomous Driving: Perception, Prediction and Planning Workshop. &nbsp;
-                                                                [<a href="https://arxiv.org/pdf/2105.00373" target="_blank">arxiv</a>]
+                                                            <h3>Implementation and Testing of Force Control on a Spherical Articulated Manipulator</h3> 
+                                                            <p><strong style="font-weight: 600;">Prathamesh Saraf</strong>, Yash Jangir, R. N. Ponnalagu.</p><p>
+                                                                2022 IEEE International Conference on Mechatronics and Automation (ICMA) &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9856174" target="_blank">paper</a>]
                                                                 [<a href="https://www.youtube.com/watch?v=qkwclSkjc6M" target="_blank">talk</a>] 
                                                                 <!-- [<a href="#" target="_blank">code</a>] -->
-                                                                [code]
+                                                                [<a href="https://github.com/Prathamesh-Saraf/Articulated-Manipulator-ROS" target="_blank">code</a>]
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="details">
                                                     <p>
-                                                        <strong>Abstract</strong>: Recent years have witnessed an increasing interest in improving the perception performance of LiDARs on 
-                                                        autonomous vehicles. While most of the existing works focus on developing novel model architectures to process point cloud data, 
-                                                        we study the problem from an optimal sensing perspective. To this end, together with a fast evaluation function based on ray tracing 
-                                                        within the perception region of a LiDAR configuration, we propose an easy-to-compute information-theoretic surrogate cost metric 
-                                                        based on Probabilistic Occupancy Grids (POG) to optimize LiDAR placement for maximal sensing. We show a correlation between our 
-                                                        surrogate function and common object detection performance metrics. We demonstrate the efficacy of our approach by verifying our 
-                                                        results in a robust and reproducible data collection and extraction framework based on the CARLA simulator. Our results confirm that 
-                                                        sensor placement is an important factor in 3D point cloud-based object detection and could lead to a variation of performance 
-                                                        by 10% ~ 20% on the state-of-the-art perception algorithms. We believe that this is one of the first studies to use LiDAR placement 
-                                                        to improve the performance of perception.
+                                                        <strong>Abstract</strong>: Robotic manipulators, a complex research topic consisting of nonlinear dynamics and control, have a wide industrial application that requires stability and high precision of the end-effector. Apart from the internal forces, external disturbances of the manipulator can cause a deviation from its desired state, affecting the overall stability and trajectory during the process. Therefore, a robust feedback control system is essential to ensure accurate maneuvering to the desired target position. Position controllers such as the Proportional-Integral-Derivative (PID) controller and the Linear Quadratic Regulator (LQR) controller are generally used for all robotic operations. In this work, we have implemented force-based impedance control using the manipulator’s simplified Lagrangian-Euler dynamics (LE) and we have compared the performance of 3 degrees of freedom (DoF) articulated robotic manipulators by applying the three control algorithms in MATLAB-Simulink and ROS-Gazebo simulators. The manipulator’s performance is tested for point-to-point motion subjected to disturbances and the simulation results shows that the impedance control has a higher tolerance to high perturbations than the classical PID and optimal LQR controllers. The results also demonstrate that the force-based controller is more suitable for higher-order linked systems in industrial applications than the optimal controller.
                                                     </p>
                                                     
                                                 </div>
@@ -283,10 +274,10 @@
                                                     </div>
                                                     <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
                                                         <div class="meta">
-                                                            <h3>Multi-Vehicle Interaction Scenarios Generation & Interpretable Traffic Primitives and Gaussian Process Regression</h3>
-                                                            <p>Wenshuo Wang, Weiyang Zhang, Jiacheng Zhu, <strong style="font-weight: 600;">Akhil Agnihotri</strong>, Ding Zhao.</p><p>
-                                                            IEEE Intelligent Vehicles Symposium 2020. &nbsp;
-                                                                [<a href="https://arxiv.org/pdf/1910.03633.pdf" target="_blank">arxiv</a>] 
+                                                            <h3>Terrain Adaptive Gait Transitioning for a Quadruped Robot using Model Predictive Control</h3>
+                                                            <p><strong style="font-weight: 600;">Prathamesh Saraf</strong>, Abhishek Sarkar, Arshad Javed</p><p>
+                                                                2021 26th International Conference on Automation and Computing (ICAC) &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9594065" target="_blank">paper</a>] 
                                                                 [<a href="https://github.com/agnihotriakhil/turtlebot3_aruco_control" target="_blank">code</a>]
                                                             </p>
                                                         </div>
@@ -294,17 +285,95 @@
                                                 </div>
                                                 <div class="details">
                                                     <p>
-                                                        <strong>Abstract</strong>: Generating multi-vehicle interaction scenarios can benefit motion planning and decision making of autonomous vehicles 
-                                                        when on-road data is insufficient. This paper presents an efficient approach to generate varied multi-vehicle interaction scenarios 
-                                                        that can both adapt to different road geometries and inherit the key interaction patterns in real-world driving. Towards this end, the 
-                                                        available multi-vehicle interaction scenarios are temporally segmented into several interpretable fundamental building blocks, called 
-                                                        traffic primitives, via the Bayesian nonparametric learning. Then, the changepoints of traffic primitives are transformed into the 
-                                                        desired road to generate collision-free interaction trajectories through a sampling-based path planning algorithm. The Gaussian process 
-                                                        regression is finally introduced to control the variance and smoothness of the generated multi-vehicle interaction trajectories. 
-                                                        Experiments with simulation results of three typical multi-vehicle trajectories at different road conditions are carried out. 
-                                                        The experimental results demonstrate that our proposed method can generate a bunch of human-like multi-vehicle interaction trajectories 
-                                                        that can fit different road conditions remaining the key interaction patterns of agents in the provided scenarios, which is import to 
-                                                        the development of autonomous vehicles.
+                                                        <strong>Abstract</strong>: Legged robots can traverse challenging terrain, use perception to plan their safe foothold positions, and navigate the environment. Such unique mobility capabilities make these platforms a perfect candidate for scenarios such as search and rescue, inspection, and exploration tasks. While traversing through such terrains, the robot’s instability is a significant concern. Many times the robot needs to switch gaits depending on its environment. Due to the complex dynamics of quadruped robots, classical PID control fails to provide high stability. Thus, there is a need for advanced control methods like the Model Predictive Control (MPC) which uses the system model and the nature of the terrain in order to predict the stable body pose of the robot. The controller also provides correction to any external disturbances that result in a change in the desired behavior of the robot. The MPC controller is designed in MATLAB, for full body torque control. The controller performance was verified on Boston Dynamics Spot in Webots simulator. The robot is able to provide correction for external perturbations up to 150 N and also resist falls till 80 cm.
+                                                    </p>
+                                                    
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-3">
+                                                        <div class="image thumb" style="padding: 0px;">
+                                                            <img alt="image" src="images/research/pubs/superplastic-forming-teaser.png"  
+                                                            style="height: inherit; border-radius: inherit;" class="img-responsive">
+                                                            <div class="imageoverlay">
+                                                                <i class="fa fa-search"></i>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
+                                                        <div class="meta">
+                                                            <h3>On-board Electrical, Electronics and Pose Estimation System for Hyperloop Pod Design</h3>
+                                                            <p>Nihal Singh, Jay Karhade, Ishika Bhattacharya, <strong>Prathamesh Saraf</strong>, Plava Kattamuri, Alivelu Manga Parimi </p>
+                                                            </p>
+                                                            2021 7th International Conference on Control, Automation and Robotics (ICCAR)  &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9463430" target="_blank">paper</a>]
+                                                                [<a href="https://drive.google.com/file/d/1uJjhhKijA1o_nziUqpCB4g_CyhB4ANNS/view?usp=sharing" target="_blank">talk</a>]
+                                                                [<a href="https://github.com/Prathamesh-Saraf/Hyperloop-Electronics-Subsystem" target="_blank">code</a>]
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="details">
+                                                    <strong>Abstract</strong>: Hyperloop is a high-speed ground-based transportation system utilizing sealed tubes, with the aim of ultimately transporting passengers between metropolitan cities in efficiently designed autonomous capsules. In recent years, the design and development of sub-scale prototypes for these Hyperloop pods has set the foundation for realizing more practical and scalable pod architectures. This paper proposes a practical, power and space optimized on-board electronics architecture, coupled with an end-to-end computationally efficient p ose e stimation algorithm. Considering the high energy density and discharge rate of on-board batteries, this work additionally presents a robust system for fault detection, protection and management of batteries, along with the design of the surrounding electrical system. Performance evaluation and verification o f p roposed a lgorithms a nd circuits has been carried out by software simulations using both Python and Simulink.
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-3">
+                                                        <div class="image thumb">
+                                                            <img alt="scenario-generation" src="images/research/pubs/scenario-generation-teaser.png" class="img-responsive">
+                                                            <div class="imageoverlay">
+                                                                <i class="fa fa-search"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
+                                                        <div class="meta">
+                                                            <h3>Modeling and Simulation of a Point to Point Spherical Articulated Manipulator Using Optimal Control</h3>
+                                                            <p><strong style="font-weight: 600;">Prathamesh Saraf</strong>, R. N. Ponnalagu</p><p>
+                                                                2021 7th International Conference on Automation, Robotics and Applications (ICARA) &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9376496" target="_blank">paper</a>] 
+                                                                [<a href="https://github.com/Prathamesh-Saraf/Articulated-Manipulator-ROS" target="_blank">code</a>]
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="details">
+                                                    <p>
+                                                        <strong>Abstract</strong>: This paper aims to design an optimal stability controller for a point to point trajectory tracking 3 degree of freedom (DoF) articulated manipulator. The Denavit Hartenberg (DH) convention is used to obtain the forward and inverse kinematics of the manipulator. The manipulator dynamics are formulated using the Lagrange Euler (LE) method to obtain a nonlinear system. The complicated nonlinear equations obtained are then linearized in order to implement the optimal linear quadratic regulator (LQR). The simulations are performed in MATLAB and Simulink and the optimal controller's performance is tested for various conditions and the results are presented. The results obtained prove the superiority of LQR over conventional PID control.
+                                                    </p>
+                                                    
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-3">
+                                                        <div class="image thumb">
+                                                            <img alt="scenario-generation" src="images/research/pubs/scenario-generation-teaser.png" class="img-responsive">
+                                                            <div class="imageoverlay">
+                                                                <i class="fa fa-search"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
+                                                        <div class="meta">
+                                                            <h3>A Comparative Study Between a Classical and Optimal Controller for a Quadrotor</h3>
+                                                            <p><strong style="font-weight: 600;">Prathamesh Saraf</strong>, Manan Gupta, Alivelu Manga Parimi</p><p>
+                                                                2020 IEEE 17th India Council International Conference (INDICON) &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9342485" target="_blank">paper</a>] 
+                                                                [<a href="https://github.com/Prathamesh-Saraf/Quadrotor-Optimal-Control" target="_blank">code</a>]
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="details">
+                                                    <p>
+                                                        <strong>Abstract</strong>: This paper presents a comparison between the Proportional Integral Derivative (PID), a classical controller, and Linear Quadratic Regulator (LQR), an optimal controller, acting on a quadrotor model to control its translational and rotational movements. The complicated dynamic model of a quadrotor based on Newtonian and Euler's laws and fundamental physics principles is simplified to derive a linear mathematical model. The derivation gives the equations that govern a quadrotor's motion concerning the body frame and the inertial frame in the state-space form. This linearized model is utilized to develop the controllers. The performance of the PID control and the optimal regulator established on LQR is compared in various conditions subjected to the Quadrotor model.
                                                     </p>
                                                     
                                                 </div>
@@ -325,60 +394,24 @@
                                                     <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
                                                         <div class="meta">
                                                             <h3>A Convolutional Neural Network Approach Towards Self-Driving Cars</h3>
-                                                            <p><strong style="font-weight: 600;">Akhil Agnihotri</strong>, Prathamesh Saraf, Kriti Bapnad. </p>
+                                                            <p>Akhil Agnihotri, <strong style="font-weight: 600;">Prathamesh Saraf</strong>, Kriti Bapnad. </p>
                                                             <p>
-                                                                IEEE India Conference 2019. &nbsp;
-                                                                [<a href="https://arxiv.org/ftp/arxiv/papers/1909/1909.03854.pdf" target="_blank">arxiv</a>] 
-                                                                [<a href="https://github.com/agnihotriakhil/CNN-buggy" target="_blank">code</a>]
+                                                                2019 IEEE 16th India Council International Conference (INDICON) &nbsp;
+                                                                [<a href="https://ieeexplore.ieee.org/document/9030307" target="_blank">paper</a>] 
+                                                                [<a href="https://www.youtube.com/watch?v=0UeVfhH5yBQ" target="_blank">talk</a>] 
+                                                                [<a href="https://github.com/Prathamesh-Saraf/Autonomous-Vehicles" target="_blank">code</a>]
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="details">
                                                     <p>
-                                                        <strong>Abstract</strong>: A convolutional neural network (CNN) approach is used to implement a level 2 autonomous vehicle by 
-                                                        mapping pixels from the camera input to the steering commands. The network automatically learns the maximum variable features from the 
-                                                        camera input, hence requires minimal human intervention. Given realistic frames as input, the driving policy trained on the dataset by 
-                                                        NVIDIA and Udacity can adapt to real-world driving in a controlled environment. The CNN is tested on the CARLA open-source driving 
-                                                        simulator. Details of a beta-testing platform are also presented, which consists of an ultrasonic sensor for obstacle detection and 
-                                                        an RGBD camera for real-time position monitoring at 10Hz. Arduino Mega and Raspberry Pi are used for motor control and processing 
-                                                        respectively to output the steering angle, which is converted to angular velocity for steering.
+                                                        <strong>Abstract</strong>: A convolutional neural network (CNN) approach is used to implement a level 2 autonomous vehicle by mapping pixels from the camera input to the steering commands. The network automatically learns the maximum variable features from the camera input, hence requires minimal human intervention. Given realistic frames as input, the driving policy trained on the dataset by NVIDIA and Udacity can adapt to real-world driving in a controlled environment. The CNN is tested on the CARLA open-source driving simulator. Details of a beta-testing platform are also presented, which consists of an ultrasonic sensor for obstacle detection and an RGBD camera for real-time position monitoring at 10Hz. RRT*-Connect algorithm is used for path planning. Arduino Mega and Raspberry Pi are used for motor control and processing respectively to output the steering angle, which is converted to angular velocity for steering.
                                                     </p>
                                                 </div>
                                             </li>
 
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-sm-4 col-md-3">
-                                                        <div class="image thumb" style="padding: 0px;">
-                                                            <img alt="image" src="images/research/pubs/superplastic-forming-teaser.png"  
-                                                            style="height: inherit; border-radius: inherit;" class="img-responsive">
-                                                            <div class="imageoverlay">
-                                                                <i class="fa fa-search"></i>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8 col-md-9" style="margin-left: -50px;">
-                                                        <div class="meta">
-                                                            <h3>A Review on Superplastic Forming of Ti-6Al-4V Alloy</h3>
-                                                            <p><strong>Akhil Agnihotri</strong>, Akula Pratyush, Amit Kumar Gupta. </p>
-                                                            </p>
-                                                                Journal of Alloys and Compounds.  &nbsp;
-                                                                [<a href="https://arxiv.org/ftp/arxiv/papers/1909/1909.05011.pdf" target="_blank">arxiv</a>]
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="details">
-                                                    <strong>Abstract</strong>: This paper presents a review on the superplastic forming of Ti-6Al-4V alloy, which has been used to 
-                                                    manufacture parts of complex shapes and geometries. This paper outlines the major work carried out on this front in the past three 
-                                                    decades. It covers various aspects related to experimental setups, including the manufacture of dies and their modifications to maintain 
-                                                    alloy thickness uniformity after forming. A detailed study of the process parameters has also been done to note the most important 
-                                                    physical conditions required for successful forming. This is followed by the influence of microstructure, modern applications of 
-                                                    superplastic forming of different titanium alloys and is concluded with an insight into the future work and progress in this field.
-                                                </div>
-                                            </li>
+                                            
                                         
                                         </ul>
                                     </div>

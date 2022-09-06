@@ -183,82 +183,79 @@
                             
                                 <div class="row" style="margin: 0px 0px 0px 10px;">
                                     <div class="col-md">
-                        <img src="images/Videos/AV.gif"  alt="" style="vertical-align:middle;margin:0px 200px"/>                
-                        <p>Legged robots are gaining tremendous popularity due to their all-terrain locomotion properties. The advantage of legged robots is high-speed locomotion along with less surface coverage which makes them suitable for many applications like rescue, inspection, and exploration. Among all legged robots, quadruped robots are the most researched as they provide maximum functionality with a less complex control. Quadruped robots are designed with three main functionalities; high-speed locomotion [1], high stability for all kinds of terrains [2] [3], and high jumping capabilities. This work mainly focuses on the stability of quadruped robots on challenging terrains.</p>
-                        <p>In our work, instead of using the Inertial Measurement Unit (IMU) feedback to design the MPC, we use the ground reaction forces at each foot and design a torque based MPC. In addition to this, we are also able to perform gait transitions, provide resistance to external perturbations and sustain falls using MPC. The torque based controller locks the joints at the desired values, thereby reducing vibrations and deviation from set-point. We used the readily available Spot robot by Boston Dynamics in Webots, fig. 1, simulator for testing our controller.</p>
-						<li>To track the lane markings on the road, determine the steering angle and move within the lane accordingly.</li>
-						<li>To have the capacity to detect obstacles along with the speed of obstacle in its path based on a predetermined threshold distance.</li>
-						<li>After obstacle and speed detection, changing its course to a relatively open lane on the road by making a decision autonomously.</li>
-						<li>Plan its path and move accordingly, thus, requiring no human intervention during its operation.</li>
-						
-						
+                                        
+                        <img src="images/Spot/Spot.png"  alt="" width="400" height="300" style="vertical-align:middle;margin:0px 180px"/>                
+                        <p>Legged robots are gaining tremendous popularity due to their all-terrain locomotion properties. The advantage of legged robots is high-speed locomotion along with less surface coverage which makes them suitable for many applications like rescue, inspection, and exploration. Among all legged robots, quadruped robots are the most researched as they provide maximum functionality with a less complex control. Quadruped robots are designed with three main functionalities; high-speed locomotion, high stability for all kinds of terrains, and high jumping capabilities. <span style="background-color: #FFFF00">This work mainly focuses on the stability of quadruped robots on challenging terrains</span>.</p>
+                        <p>In our work, instead of using the Inertial Measurement Unit (IMU) feedback to design the MPC, we use the ground reaction forces at each foot and design a torque based MPC. In addition to this, we are also able to perform gait transitions, provide resistance to external perturbations and sustain falls using MPC. The torque based controller locks the joints at the desired values, thereby reducing vibrations and deviation from set-point. We used the readily available Spot robot by Boston Dynamics in Webots, simulator for testing our controller.</p>
+
                         
-                        <h2>System Architecture</h2>
+                        <h2>MPC Architecture</h2>
+                        <img src="images/Spot/blockdiag.png" alt="" width="800" height="350" style="vertical-align:left;margin:0px 0px"/>                   
+
+                        <p>The input to the quadruped state-space model is the ground reaction forces experienced at each foot. Compared to the classical controllers, MPC has a few advantages, which proves it to be the superior one: </p>
+                            <li><span style="background-color: #FFFF00">MPC uses the robot dynamics, for predicting future steps based on the model’s current state. </span> 
+                            </li>
+                            <li>
+                                <span style="background-color: #FFFF00">The controller gains are designed based on a cost function for optimal performance and low overshoots.</span>
+                            </li>
+                        <p></p>
+                        <p>
+                            This makes MPC a better candidate for multi-constrained systems like legged robots. Apart from the system model and the tuned weights, the MPC needs the initial and the goal position. Depending on the update frequency, the controller estimates its state with respect to the goal position and recalculates its trajectory from that state towards the final position. Here, the controller corrects the reaction forces, which indirectly means joint torque control of each quadruped leg. Consider a simple standing position of the quadruped on flat ground. Since all four legs of Spot have the same kinematic structure, the jacobian matrix will be the same for all. On flat ground, all the 4 feet will experience equal ground reaction force in x, y, and z-direction. Such conditions for different scenarios are defined and the controller is designed.
+                        </p>
+                                <p>The <span style="background-color: #FFFF00">mathematical model of the quadruped dynamics</span> used for designing the MPC controller is given below:</p>
+
+                        <img src="images/Spot/potato model.png" alt="" width="600" height="400" style="vertical-align:right;margin:0px 100px"/>
                         
-                        <img src="images/AV/setup1.PNG" alt="" width="450" height="350" style="vertical-align:left;margin:0px 0px"/>                   
-                        <p>The system is built using the following:</p>
-
-                        <li>Circular metal chassis of diameter 25cm.</li>
-
-                        <li>Two Stepper motors (Nema 17) for the wheels.</li>
-
-                        <li>Two Servo motors attached to the stepper motors to give the steering angle to the vehicle.</li>
-
-                        <li>Ultrasonic sensor HC-SR04 for obstacles detection.</li>
-
-                        <li>Web camera for image capturing of lanes on the road and Raspberry-pi 3B for image processing of the images captured and getting the steering angle.</li>
+                        <h2>Gait Definition</h2>
                         
-                        <img src="images/AV/kernel.gif" alt="" width="300" height="400" style="vertical-align:right;margin:0px 500px"/>
-
-                        <p>The developed CNN architecture consists of four convolution layers and two fully-connected vanilla layers, each having a different bias, weight and Rectified Linear Unit (ReLU) associated with it. Initially, independent and identically distributed (i.i.d.) weights and bias of 0.1 are assigned. 
-                            The first three layers are padded with 5x5 kernels with a stride of 2 while the next layer has 3x3 kernels with a stride of 1. 
-                            These layers are followed by two fully-connected layers which are non-stridden to prevent overfitting on the training data, which is segmented into batches of size 100 and trained for 30 epochs on the CNN. 
-                            These fully connected layers also serve as a controller for the steering, thus eliminating the use of an explicitly defined controller, normally a Constrained Linear Quadratic Regulation (LQR) controller. The detailed CNN structure is given below:</p>
+                        <img src="images/Spot/gait.png"  alt="" style="vertical-align:middle;margin:0px 0px"/>
+                        
+                        <p></p>
+                        <p>There exist multiple quadrupedal gaits for varying speed and terrain definition. In this work, we have implemented the trot, which is meant for medium pace, and the bound gait for high speed locomotion. <span style="background-color: #FFFF00">While bounding, the Left Front (LF) and Right Front (RF) legs move together followed by the Left Hind (LH) and the Right Hind (RH) legs.</span> The phase difference between the Front and Hind legs is 180°. At a particular instance, only the front or the back legs are in the stance phase while the other two are in swing phase.</p>
+                        <p><span style="background-color: #FFFF00">For trot gait, the two diagonally opposite legs move together</span>, i.e., [RH, LF] followed by [RF, LH]. This gait is meant for medium pace and is found to be more suitable for locomotion uneven terrains as well. The robot was made to execute the bounding gait on flat ground and the inclined uneven terrain in Webots. However, to our notice, the robot was not able to follow the terrain transition and got stuck. A feedback check is added to ensure the torso has a continuous motion. If there is no torso motion for defined period of time, the gait transitioning is executed from bound to trot. The gait cycle for bound to trot transition is shown in the diagram below. Gait transitioning is an unstable operation and may result in the robot losing balance and toppling. It needs to be ensured that during the transition phase, the robots center of mass stays within the support polygon formed by the legs in stance phase. The MPC plays a crucial role in the transition phase1. <span style="background-color: #FFFF00">The robot is able to successfully transition from bound to trot and is able to climb uneven terrains up to elevation of 20°</span>.</p>
                             
-                            <h2>Results</h2>
-                            <img src="images/AV/graphs.gif"  alt="" style="vertical-align:middle;margin:0px 150px"/>
+                        <h2>Results</h2>
+                        
                         <p>
-                            The CNN was trained as described above and tested on a dataset provided by the University of Cambridge to give a sub-par performance since the weather conditions of the two datasets are different. 
-                            The model was trained on two datasets from Udacity and NVIDIA. 
-                            The Udacity dataset consisted of 6.6 Gigabytes of 33,478 images while the NVIDIA dataset had 2.1 Gigabytes of 7,064 images. 
-                            As seen in Fig. 6, there is a stark difference in the validation Mean Square Error (MSE) loss of the model after 30 epochs in both the instances visualized with the help of TensorFlow. 
-                            Udacity dataset gave a loss of 0.0003798 after 30 epochs while NVIDIA dataset gave a loss of 1.013 which was approximately 5 times smaller than the Udacity dataset.
+                        The above given model is used as a reference for the end-effector trajectory while designing the MPC. It gives an estimate to the controller as to how the future state of the system might be so that it can rightly predict the action required to maintain stability. It must be noted that this model does not perfectly resemble the future system state but only helps in tuning the controller by assuming similar system nature. In case of high update frequency of MPC (50Hz and above), this reference model has negligible importance. This is because the controller estimates the system state and provides correction at a high rate. However, due to hardware limitations and high computation cost, it is not possible to run MPC at frequencies higher than 30 Hz on the actual robot. We have designed the controller for an<span style="background-color: #FFFF00"> update frequency of 20Hz with a sine reference model</span> for simulating uneven terrain. At lower frequencies the reference model plays an important role which can be seen in the figure below. The graph represents the robot’s motion on an uneven terrain recorded for 10 timesteps. For a stable motion, <span style="background-color: #FFFF00">the torso orientation is desired to be [0, 0, z, 0] for [x, y, z, yaw]</span> respectively. The blue curve (a, b, c, d) represents the actual torso motion when sine model was used and the green curve (e, f, g, h) represents the torso motion when the controller was designed using constant reference model.
                         </p>
+                        <img src="images/Spot/TorsoMPCwithLegend_final.png"  alt="" width="850" height="500" style="vertical-align:middle;margin:0px 0px"/>
+                        <p>
+                            The torso stability is maintained at the set-point for the sine model whereas continuously increasing values are found in the constant model depicting unstable nature. In order to test the controller’s performance for external disturbances, an impulse signal was given to the model with a time period of 5 s. The amplitude of the impulse signal was increased for finding the tolerable limit. The controller performance can be seen in the figure below. The torso deviates when force is applied but controller corrects the body pose within 2 s time. The recovery time increases from 2 s to 4.5 s for 150 N disturbance which can be called as the limit. After this point, the next deviation will take place before initial correction which will increase instability and lead to toppling. The controller was tuned in MATLAB and tested on the mathematical model. Later the <span style="background-color: #FFFF00">MPC was designed using gekko optimiser and validated in Webots</span>.
+                            </p>
+                            <img src="images/Spot/VaryingForceDisturbanceWithLegend_final.png"  alt="" style="vertical-align:middle;margin:0px 80px"/>
+    
                         <h2>Conclusion</h2>
-                        <p>This paper describes a methodology of implementing a level-2 autonomous vehicle in a relatively sparsely occupied environment. 
-                        A CNN is trained on a dataset by Udacity and used to compute the optimal steering angle based on the image input through the camera. 
-                        In case of obstruction in the path, three ultrasonic sensors are used to decide in which direction the vehicle should turn to continue on its path. 
-                        Once this is achieved, the vehicle resumes its normal functioning of manoeuvring based on the steering angle given by the CNN.
+                        <p>The quadruped simplified dynamic equations are modelled and simulated in MATLAB. The MPC controller designed in MATLAB is tested for various environmental conditions and shows promising results. The controller is then verified for similar conditions in Webots. A smooth quadrupedal gait transition from high paced bounding to medium paced trot gait is executed successfully. MATLAB and Webots simulations show that the MPC can handle disturbances up to 150 N and is able to sustain falls from heights up to 80 cm. The robot is also able to traverse on inclined uneven surfaces with the help of the MPC.
                         </p>
-                        <p>
-                        Based on the above results, an experiment is being designed for on-road testing on the intra-campus roads of BITS Pilani Hyderabad Campus. 
-                        The test-path is 580 meters in length with negligible elevation gradient since the dataset was also created on a plane terrain. 
-                        The path will be marked with three parallel lanes of width 1 meter of Snowcal powder. 
-                        The GPS module GSM SIM908 will be used for location and path-tracking of the vehicle.
+                        <p>    
+                            The future work will focus on designing the other quadrupedal gaits and designing policies for the robot to achieve stable locomotion on more inclined surfaces. Environment mapping will be explored for dynamic trajectory optimisation on the run. We also plan on designing non-periodic gaits to allow locomotion through rocky and sandy terrain by predicting the safe foothold positions using Reinforcement Learning techniques.
                         </p>
-                        <img src="images/AV/carla.gif" alt="" style="vertical-align:middle;margin:0px 200px"/>
-                        <img src="images/AV/Capture.PNG" alt="" style="vertical-align:middle;margin:0px 0px"/>
+                        
                                     </div>
                                     <h2> Related Publications </h2>
                                     <article>
-                                    <li>
-                                        
-                                        “A Convolutional Neural Network Approach Towards Self-Driving Cars"
-                                        <a href="https://ieeexplore.ieee.org/document/9030307" target="_blank">[Paper]</a>
-                                    </li>
+                                        “Terrain Adaptive Gait Transitioning for a Quadruped Robot using Model Predictive Control"
+                                        <a href="https://ieeexplore.ieee.org/document/9594065" target="_blank">[Paper]</a>
                                     <p></p>
+                                    
                                     <h2> People </h2>
                                     <div class="people project-people">
                                         <div class="person person-with-image row align-items-center">
                                             <div class="row">
                                                 <div>
-                                                    <a href="/index.html"><img class="rounded-circle profile"	src="images/pratha.png" width="75" height="75" /></a>
+                                                    <a href="/index.html"><img class="rounded-circle profile"	src="images/People/pratha.png" width="75" height="75" /></a>
                                                     <p class="person-name">Prathamesh Saraf</p>
                                                 </div>
                                                 
                                                 <div>
-                                                    <a href="https://agnihotriakhil.github.io/"><img class="rounded-circle profile" src="images/akhil.png" width="75" height="75" /></a>
-                                                    <p class="person-name">Akhil Agnihotri</p>
+                                                    <a href="https://universe.bits-pilani.ac.in/hyderabad/abhisheks/Profile"><img class="rounded-circle profile" src="images/People/AbhishekSarkar.png" width="75" height="75" /></a>
+                                                    <p class="person-name">Prof. Abhishek Sarkar</p>
+                                                </div>
+                                                
+                                                <div>
+                                                    <a href="https://www.bits-pilani.ac.in/hyderabad/arshadj/Profile"><img class="rounded-circle profile" src="images/People/arshad.png" width="75" height="75" /></a>
+                                                    <p class="person-name">Prof. Arshad Javed</p>
                                                 </div>
                                                     
                                             </div>

@@ -79,7 +79,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	background-image: url(../images/chair.jpeg);
+	background-image: url(../images/bg.jpeg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -193,7 +193,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 }
 
 #profile .portrait {
-	background-image: url("../images/ucsdprofilepic.jpeg");
+	background-image: url("../images/smallpic-modified.png");
 	width: 125px;
 	margin: 0 auto;
 	margin-bottom: 10px;

@@ -179,114 +179,28 @@
                         <div class="headercontent">
 
                             <div class="section-container">
-                                <h3 class="title" >A Convolutional Neural Network Approach Towards Self-driving Cars</h3>
+                                <h3 class="title" >Stoch Quadruped Robot Control</h3>
                             
                                 <div class="row" style="margin: 0px 0px 0px 10px;">
                                     <div class="col-md">
-                        <img src="images/Videos/AV.gif"  alt="" style="vertical-align:middle;margin:0px 300px"/>                
-                        <p>This work contains the details of the developed CNN, design of the robot and an experiment proposal to test the autonomy of the robot in a controlled real environment. The autonomous vehicle developed in this project is expected to satisfy the following objectives:</p>
-
-						<li>To track the lane markings on the road, determine the steering angle and move within the lane accordingly.</li>
-						<li>To have the capacity to detect obstacles along with the speed of obstacle in its path based on a predetermined threshold distance.</li>
-						<li>After obstacle and speed detection, changing its course to a relatively open lane on the road by making a decision autonomously.</li>
-						<li>Plan its path and move accordingly, thus, requiring no human intervention during its operation.</li>
-						
-						
-                        
-                        <h2>System Architecture</h2>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-5">
-                                
-                                    <img alt="scenario-generation" src="images/AV/setup1.PNG" class="img-responsive">
-
-                            </div>
-                            <div class="col-sm-8 col-md-7" style="margin-left: 0px;">
-                                <div class="meta">
-                                    
-                                    <p>The system is built using the following:</p>
-
-                        <li>Circular metal chassis of diameter 25cm.</li>
-
-                        <li>Two Stepper motors (Nema 17) for the wheels.</li>
-
-                        <li>Two Servo motors attached to the stepper motors to give the steering angle to the vehicle.</li>
-
-                        <li>Ultrasonic sensor HC-SR04 for obstacles detection.</li>
-
-                        <li>Web camera for image capturing of lanes on the road and Raspberry-pi 3B for image processing of the images captured and getting the steering angle.</li>
-                        
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-6">
-                                <div class="meta">
-                                    <p></p>
-                                    <p></p>
-                                    <p>The developed CNN architecture consists of four convolution layers and two fully-connected vanilla layers, each having a different bias, weight and Rectified Linear Unit (ReLU) associated with it. Initially, independent and identically distributed (i.i.d.) weights and bias of 0.1 are assigned. 
-                                        The first three layers are padded with 5x5 kernels with a stride of 2 while the next layer has 3x3 kernels with a stride of 1. 
-                                        These layers are followed by two fully-connected layers which are non-stridden to prevent overfitting on the training data, which is segmented into batches of size 100 and trained for 30 epochs on the CNN. 
-                                        These fully connected layers also serve as a controller for the steering, thus eliminating the use of an explicitly defined controller, normally a Constrained Linear Quadratic Regulation (LQR) controller. The detailed CNN structure is given below:</p>
-                                        
-                                </div>
-                                    
-                            </div>
-                            <div class="col-sm-6 col-md-6" style="margin-left: 0px;">
-                                <img alt="scenario-generation" src="images/AV/kernel.gif" width="300" height="400" class="img-responsive">
-
-                            </div>
-                        </div>
-                    
-                            <h2>Results</h2>
-                            <img src="images/AV/graphs.gif"  alt="" style="vertical-align:middle;margin:0px 200px"/>
-                        <p>
-                            The CNN was trained as described above and tested on a dataset provided by the University of Cambridge to give a sub-par performance since the weather conditions of the two datasets are different. 
-                            The model was trained on two datasets from Udacity and NVIDIA. 
-                            The Udacity dataset consisted of 6.6 Gigabytes of 33,478 images while the NVIDIA dataset had 2.1 Gigabytes of 7,064 images. 
-                            As seen in Fig. 6, there is a stark difference in the validation Mean Square Error (MSE) loss of the model after 30 epochs in both the instances visualized with the help of TensorFlow. 
-                            Udacity dataset gave a loss of 0.0003798 after 30 epochs while NVIDIA dataset gave a loss of 1.013 which was approximately 5 times smaller than the Udacity dataset.
-                        </p>
-                        <h2>Conclusion</h2>
-                        <p>This paper describes a methodology of implementing a level-2 autonomous vehicle in a relatively sparsely occupied environment. 
-                        A CNN is trained on a dataset by Udacity and used to compute the optimal steering angle based on the image input through the camera. 
-                        In case of obstruction in the path, three ultrasonic sensors are used to decide in which direction the vehicle should turn to continue on its path. 
-                        Once this is achieved, the vehicle resumes its normal functioning of manoeuvring based on the steering angle given by the CNN.
-                        </p>
-                        <p>
-                        Based on the above results, an experiment is being designed for on-road testing on the intra-campus roads of BITS Pilani Hyderabad Campus. 
-                        The test-path is 580 meters in length with negligible elevation gradient since the dataset was also created on a plane terrain. 
-                        The path will be marked with three parallel lanes of width 1 meter of Snowcal powder. 
-                        The GPS module GSM SIM908 will be used for location and path-tracking of the vehicle.
-                        </p>
-                        <img src="images/AV/carla.gif" alt="" style="vertical-align:middle;margin:0px 250px"/>
-                        <img src="images/AV/Capture.PNG" alt="" style="vertical-align:middle;margin:0px 80px"/>
-                                    </div>
-                                    <h2> Related Publications </h2>
-                                    <article>
-                                    <li>
-                                        
-                                        “A Convolutional Neural Network Approach Towards Self-Driving Cars"
-                                        <a href="https://ieeexplore.ieee.org/document/9030307" target="_blank">[Paper]</a>
-                                    </li>
-                                    <p></p>
-                                    <h2> People </h2>
-                                    <div class="people project-people">
-                                        <div class="person person-with-image row align-items-center">
-                                            <div class="row">
-                                                <div>
-                                                    <a href="/index.html"><img class="rounded-circle profile"	src="images/pratha.png" width="75" height="75" /></a>
-                                                    <p class="person-name">Prathamesh Saraf</p>
-                                                </div>
+                                        <h2>MPC testing with perturbation (Simulation)</h2>
+                                                <iframe src="https://drive.google.com/file/d/1mNwhUV6yJDfhdS0JlKaDtFpBvBxToKkO/preview" width="640" height="480" allow="autoplay"></iframe>                
+                                            
+                                            
+                                        <h2>MPC testing on uneven surface 1(Simulation)</h2>    
+                                                <iframe src="https://drive.google.com/file/d/1mG3dnd7psm-7dhZZF-H_7yIY6ai7liQp/preview" width="640" height="480" allow="autoplay"></iframe>
                                                 
-                                                <div>
-                                                    <a href="https://agnihotriakhil.github.io/"><img class="rounded-circle profile" src="images/akhil.png" width="75" height="75" /></a>
-                                                    <p class="person-name">Akhil Agnihotri</p>
-                                                </div>
-                                                    
-                                            </div>
-                                        </div>
-                                    </article>           
-                                </div>
+                                        <h2>MPC testing on uneven surface 2(Simulation)</h2>        
+                                                <a href="https://drive.google.com/file/d/1mKf0S50os2VjUYpq5Cfa2vVM0SY5z2Wz/view?usp=sharing">
+                                                    <img alt="Qries" src="images/Stoch.jpg"
+                                                    width=200" height="200">
+                                                 </a>
+                                                 <p>Click the above image to watch the video</p>
+                                        <h2>MPC testing forward (Hardware)</h2>
+                                                <iframe src="https://drive.google.com/file/d/1E_tOgXf7BlxwBnPXFvxPz0oPkifq4W-K/preview" width="640" height="480" allow="autoplay"></iframe>
+                                
+                                        <h2>MPC testing lateral (Hardware)</h2>
+                                                <iframe src="https://drive.google.com/file/d/1EZATXdUnX2gF9ZlHuNriK75q3rl5zmCj/preview" width="640" height="480" allow="autoplay"></iframe>
                             </div>
                         </div>
                     </div>
